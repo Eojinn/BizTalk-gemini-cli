@@ -1,5 +1,5 @@
 import os
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from groq import Groq
 from dotenv import load_dotenv
@@ -45,8 +45,13 @@ def convert_text():
     return jsonify(response_data)
 
 @app.route('/')
-def index():
-    return "BizTone Converter 백엔드 서버가 실행 중입니다."
+def serve_index():
+    return send_from_directory('../frontend', 'index.html')
+
+@app.route('/<path:filename>')
+def serve_static(filename):
+    # This route will serve files like css/style.css, js/script.js, etc.
+    return send_from_directory('../frontend', filename)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
