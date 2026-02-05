@@ -140,7 +140,7 @@
 - **주요 내용**:
   - backend/app.py에 정적인 페이지 라우팅 로직은 그대로 유지하기
   - Groq AI API를 활용한 실제 말투 변환 로직 구현
-    - 대상(target)의 값은 상사(Upward), 타팀 동료 (Lateral), 고객 (External)
+    - 대상(target)의 값은 상사(Upward), 타팀 동료(Lateral), 고객(External)
     - 대상별 최적화된 프롬프트 엔지니어링 적용
     - model="moonshotai/kimi-k2-instruct-0905 사용
     - 오류 처리 및 로깅 시스템 보강
